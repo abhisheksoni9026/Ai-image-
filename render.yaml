@@ -20,13 +20,13 @@ services:
       mountPath: /var/data
       sizeGB: 1
 
-  - type: static_site
+  - type: web
     name: ai-image-studio-frontend
-    env: static
+    env: node
     region: oregon
     plan: free
     buildCommand: "cd frontend && npm install && npm run build"
-    staticPublishPath: frontend/dist
+    startCommand: "npx serve frontend/dist -s -l $PORT"
     envVars:
       - key: VITE_API_URL
         value: https://ai-image-studio-backend.onrender.com
