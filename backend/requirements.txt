@@ -4,7 +4,8 @@ sqlalchemy
 pydantic
 python-dotenv
 pillow
-diffusers
-transformers
-accelerate
-torch
+ # Heavy ML libs removed for Render free-tier test deploy
+ # diffusers
+ # transformers
+ # accelerate
+ # torch
