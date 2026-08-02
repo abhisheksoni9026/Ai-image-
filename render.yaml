@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: ai-image-studio-backend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "cd backend && pip install -r requirements.txt"
+    startCommand: "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+      - key: CORS_ORIGINS
+        value: https://ai-image-studio-frontend.onrender.com
+      - key: DATABASE_URL
+        value: sqlite:///./images.db
+      - key: IMAGE_FOLDER
+        value: /var/data/images
+    disk:
+      name: ai-images
+      mountPath: /var/data
+      sizeGB: 1
+
+  - type: static
+    name: ai-image-studio-frontend
+    env: static
+    region: oregon
+    plan: free
+    buildCommand: "cd frontend && npm install && npm run build"
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://ai-image-studio-backend.onrender.com

@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+dist/
+coverage/
+.npm/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# App artifacts
+backend/images/*.png
+backend/images/*.jpg
+backend/images/*.jpeg
+backend/images/*.webp
+backend/images/*.gif
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+
+# Logs
+*.log
