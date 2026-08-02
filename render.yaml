@@ -14,11 +14,7 @@ services:
       - key: DATABASE_URL
         value: sqlite:///./images.db
       - key: IMAGE_FOLDER
-        value: /var/data/images
-    disk:
-      name: ai-images
-      mountPath: /var/data
-      sizeGB: 1
+        value: ./images
 
   - type: web
     name: ai-image-studio-frontend
