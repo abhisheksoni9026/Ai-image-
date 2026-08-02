@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+/* eslint-disable no-unused-vars */
 import { motion, AnimatePresence } from "framer-motion";
 import { generateImage, getHistory } from "../api/api";
 
